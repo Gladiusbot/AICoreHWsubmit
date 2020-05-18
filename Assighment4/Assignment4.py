@@ -56,9 +56,9 @@ class RNN_Model():
     def train(self):
         model = TextRNN().cuda()
         Loss = nn.MultiLabelSoftMarginLoss()
-        optimizer = optim.Adam(model.parameters(), lr=0.01)
+        optimizer = optim.Adam(model.parameters(), lr=0.001)
         best_val_acc = 0
-        for epoch in range(1000):
+        for epoch in range(10):
             torch.cuda.empty_cache()
             print('epoch=', epoch)
             # t0 = datetime.datetime.now()
