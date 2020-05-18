@@ -58,7 +58,7 @@ class RNN_Model():
         Loss = nn.MultiLabelSoftMarginLoss()
         optimizer = optim.Adam(model.parameters(), lr=0.001)
         best_val_acc = 0
-        for epoch in range(10):
+        for epoch in range(15):
             torch.cuda.empty_cache()
             print('epoch=', epoch)
             # t0 = datetime.datetime.now()
@@ -67,7 +67,7 @@ class RNN_Model():
                 y = y_batch.cuda()
                 out = model(x)
                 loss = Loss(out, y)
-    #             print('loss=', loss)
+                # print('loss=', loss)
                 optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
